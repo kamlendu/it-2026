@@ -1,0 +1,31 @@
+1. create a new git repo in github .com say ict-2025
+2. clone it into your machine dir
+git clone https://github.com/kamlendu/ict-2025.git
+A directory will be created as ict-2025
+3. Now create a password token in github Settings (in right most icon)-> Developer Settings (left panel last meny item)
+
+if you dont have a ssh key then create it by following command 
+ > ls -al ~/.ssh
+ > ssh-keygen -t rsa -b 4096 -C "kamlendup@gmail.com"
+ 
+ > ssh-add ~/.ssh/id_rsa
+ Add a paraphase if you want
+ 
+ > xclip -sel clip < ~/.ssh/id_rsa.pub
+ 
+ > cat ~/.ssh/id_rsa.pub // get public key 
+ 
+ In github.com got to Settngs -> Access > SSH keys and create new SSH key by pasting the result of earlier command. Give the name to key
+ 
+ 4. To store key in cache 
+ > git config --global credential.helper store
+ > git pull
+ 
+ NOW
+ 
+ In terminal got the path of cloned directory
+ 
+ 1. git add .
+ 2. git commit -m "sada"
+ 3. git push origin main
+ 
