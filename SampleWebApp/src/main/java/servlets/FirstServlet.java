@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,8 +17,25 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "FirstServlet", urlPatterns = {"/FirstServlet"}, initParams = {
+    @WebInitParam(name = "fname", value = "Rakesh"),
+    @WebInitParam(name = "lname", value = "Shah")})
+public class FirstServlet extends HttpServlet {
+
+    @Override
+    public void init() throws ServletException {
+        super.init(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    
+    System.out.println("First Servlet is initialized.......");
+    
+    }
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,8 +46,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,10 +54,15 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet FirstServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Hello World of Servlets !!!</h1>");
+            
+            String fname = this.getInitParameter("fname");
+            String lname = this.getInitParameter("lname");
+            
+            
+            out.println("<h1>Hello " + fname + "   "+ lname + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,6 +80,9 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          System.out.println("First Servlet is in Get method.......");
+    
+  
         processRequest(request, response);
     }
 
@@ -73,8 +97,24 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+          System.out.println("First Servlet is in Post method.......");
+    
+  
         processRequest(request, response);
     }
+
+    @Override
+    public void destroy() {
+        super.destroy(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+      System.out.println("First Servlet is destroyed.......");
+    
+  
+    
+    }
+    
+    
+    
 
     /**
      * Returns a short description of the servlet.
