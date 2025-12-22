@@ -63,6 +63,21 @@ public class FirstServlet extends HttpServlet {
             
             
             out.println("<h1>Hello " + fname + "   "+ lname + "</h1>");
+            
+            out.println("<h1>Path = "+  request.getContextPath()+ "</h1>");
+            out.println("<h1>Method = "+  request.getMethod()+ "</h1>");
+            out.println("<h1>QueryStrig = "+  request.getQueryString()+ "</h1>");
+            out.println("<h1>Remote User = "+  request.getRemoteUser()+ "</h1>");
+            out.println("<h1>Host = "+  request.getRemoteHost()+ "</h1>");
+            out.println("<h1>IP Address = "+  request.getRemoteAddr()+ "</h1>");
+            
+            
+            if(fname.equals("Rakesh"))
+            response.sendRedirect("hello");
+            
+            
+            
+            
             out.println("</body>");
             out.println("</html>");
         }

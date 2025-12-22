@@ -11,14 +11,43 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Enumeration;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "DataServlet", urlPatterns = {"/DataServlet"})
+public class DataServlet extends HttpServlet {
+
+    Connection con;
+    ResultSet rs;
+    
+    
+    
+    
+    public DataServlet() {
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/test?useSSL=false","root","ompandey");
+        }
+        catch(ClassNotFoundException cnfe)
+        {
+            cnfe.printStackTrace();
+        }
+         catch(SQLException sqle)
+         {
+             sqle.printStackTrace();
+         }
+    }
+    
+    
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,8 +58,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -39,26 +66,24 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet DataServlet</title>");
             out.println("</head>");
-            out.println("<body><h2>");
+            out.println("<body>");
+            try{
+            Statement stmt = con.createStatement();
             
+            rs = stmt.executeQuery("select * from BookMaster");
             
-            Enumeration e = request.getHeaderNames();
-            
-            while(e.hasMoreElements())
+            while(rs.next())
+            {
+                out.println("<br/>"+rs.getString(1));
+            }
+            }
+            catch (SQLException e)
             {
                 
-                String hname = e.nextElement().toString();
-                
-                out.println("<br/>"+ hname + " : "+  request.getHeader(hname));
             }
-            
-            
-            
-            
-            
-            out.println("</h2><h1>Hello World of Servlets !!!</h1>");
+            out.println("<h1>Servlet DataServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -11,14 +11,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Enumeration;
 
 /**
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "TestServlet", urlPatterns = {"/TestServlet"})
+public class TestServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,8 +28,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -39,26 +36,26 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet TestServlet</title>");
             out.println("</head>");
-            out.println("<body><h2>");
+            out.println("<body>");
+            
+            String names[] = request.getParameterValues("nm");
+            
+            int num1 = Integer.parseInt(request.getParameter("x"));
+            int num2 = Integer.parseInt(request.getParameter("y"));
             
             
-            Enumeration e = request.getHeaderNames();
+            int total = num1 + num2;
             
-            while(e.hasMoreElements())
+            out.println("<h1> Sum of " + num1 + " "+ num2  + " is "+ total + "</h1>");
+            
+            for(int i=0 ; i<names.length; i++)
             {
-                
-                String hname = e.nextElement().toString();
-                
-                out.println("<br/>"+ hname + " : "+  request.getHeader(hname));
+               out.println("<br/>"+ names[i]); 
             }
             
             
-            
-            
-            
-            out.println("</h2><h1>Hello World of Servlets !!!</h1>");
             out.println("</body>");
             out.println("</html>");
         }
