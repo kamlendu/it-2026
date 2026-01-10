@@ -1,0 +1,6 @@
+it/bookstore/JakartaRestConfiguration.class
+entity/Address.class
+servlets/BookMaster.class
+it/bookstore/resources/JakartaEE8Resource.class
+entity/Customer.class
+entity/Subscription.class

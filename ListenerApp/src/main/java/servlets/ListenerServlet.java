@@ -4,7 +4,6 @@
  */
 package servlets;
 
-import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,8 +17,8 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "ListenerServlet", urlPatterns = {"/ListenerServlet"})
+public class ListenerServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,8 +29,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,35 +37,20 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet ListenerServlet</title>");
             out.println("</head>");
-            out.println("<body><h2>");
+            out.println("<body>");
+            
             
             HttpSession session = request.getSession(true);
             
-            session.setAttribute("rnum", Math.random());
+            session.setAttribute("greet", "hello");
+            out.println("<h1>Company : " + request.getServletContext().getAttribute("company") + "</h1>");
+    
+            request.getServletContext().setAttribute("year", "2025");
             
             
-            ServletContext  ctx = request.getServletContext();
-            
-            ctx.setAttribute("appnum", Math.random() );
-            
-            
-//            Enumeration e = request.getHeaderNames();
-//            
-//            while(e.hasMoreElements())
-//            {
-//                
-//                String hname = e.nextElement().toString();
-//                
-//                out.println("<br/>"+ hname + " : "+  request.getHeader(hname));
-//            }
-//            
-            
-            
-            
-            
-            out.println("</h2><h1>Hello World of Servlets !!!</h1>");
+            out.println("<h1>Servlet ListenerServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

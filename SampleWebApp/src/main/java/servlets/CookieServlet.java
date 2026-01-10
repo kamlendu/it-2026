@@ -4,22 +4,24 @@
  */
 package servlets;
 
-import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "CookieServlet", urlPatterns = {"/CookieServlet"})
+public class CookieServlet extends HttpServlet {
+    
+    Cookie visitor=null;
+    int visits;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,8 +32,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,35 +40,64 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet CookieServlet</title>");
             out.println("</head>");
-            out.println("<body><h2>");
+            out.println("<body>");
             
-            HttpSession session = request.getSession(true);
+            Cookie cookies[] = request.getCookies();
             
-            session.setAttribute("rnum", Math.random());
+            if(cookies != null)
+            {
+                for(Cookie c : cookies)
+                {
+                    
+                    if(c.getName().equals("visitor"))
+                    {
+                        visitor = c;
+                    }
+                    
+                }
+                
+                
+                if(visitor !=null)
+                {
+                    visits =  Integer.parseInt(visitor.getValue())+1;
+                    
+                    out.println("<h2> You have visited this page for " + visits + "times");
+                    
+                    visitor.setValue(String.valueOf(visits));
+                    
+                    response.addCookie(visitor);
+                    
+                }
+                else
+                {
+                     visitor = new Cookie("visitor","1");
+                    out.println("<h2> You have visited this page for the first time");
+                    response.addCookie(visitor);
+                }
+                
+                
+                
+                
+                
+            }
+            else
+            {
+                visitor = new Cookie("visitor","1");
+                out.println("<h2> You have visited this page for the first time");
+                response.addCookie(visitor);
+                
+            }
             
             
-            ServletContext  ctx = request.getServletContext();
-            
-            ctx.setAttribute("appnum", Math.random() );
-            
-            
-//            Enumeration e = request.getHeaderNames();
-//            
-//            while(e.hasMoreElements())
-//            {
-//                
-//                String hname = e.nextElement().toString();
-//                
-//                out.println("<br/>"+ hname + " : "+  request.getHeader(hname));
-//            }
-//            
             
             
             
             
-            out.println("</h2><h1>Hello World of Servlets !!!</h1>");
+            
+            
+            out.println("<br/><h1>Servlet CookieServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

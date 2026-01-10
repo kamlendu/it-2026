@@ -4,7 +4,6 @@
  */
 package servlets;
 
-import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,14 +11,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "FilterServlet", urlPatterns = {"/FilterServlet"})
+public class FilterServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,8 +28,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,35 +36,10 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet FilterServlet</title>");
             out.println("</head>");
-            out.println("<body><h2>");
-            
-            HttpSession session = request.getSession(true);
-            
-            session.setAttribute("rnum", Math.random());
-            
-            
-            ServletContext  ctx = request.getServletContext();
-            
-            ctx.setAttribute("appnum", Math.random() );
-            
-            
-//            Enumeration e = request.getHeaderNames();
-//            
-//            while(e.hasMoreElements())
-//            {
-//                
-//                String hname = e.nextElement().toString();
-//                
-//                out.println("<br/>"+ hname + " : "+  request.getHeader(hname));
-//            }
-//            
-            
-            
-            
-            
-            out.println("</h2><h1>Hello World of Servlets !!!</h1>");
+            out.println("<body>");
+            out.println("<h1>Servlet FilterServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

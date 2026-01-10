@@ -18,8 +18,8 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author kamlendu
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "SessionServlet", urlPatterns = {"/SessionServlet"})
+public class SessionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,8 +30,6 @@ public class HelloServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,35 +38,21 @@ public class HelloServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");
+            out.println("<title>Servlet SessionServlet</title>");
             out.println("</head>");
-            out.println("<body><h2>");
-            
-            HttpSession session = request.getSession(true);
-            
-            session.setAttribute("rnum", Math.random());
+            out.println("<body>");
             
             
-            ServletContext  ctx = request.getServletContext();
+            HttpSession session = request.getSession();
             
-            ctx.setAttribute("appnum", Math.random() );
-            
-            
-//            Enumeration e = request.getHeaderNames();
-//            
-//            while(e.hasMoreElements())
-//            {
-//                
-//                String hname = e.nextElement().toString();
-//                
-//                out.println("<br/>"+ hname + " : "+  request.getHeader(hname));
-//            }
-//            
+            ServletContext ctx = request.getServletContext();
             
             
+            out.println("<br/>The random no for client in session "+ session.getAttribute("rnum").toString());
             
+            out.println("<br/>The random no for client in application "+ ctx.getAttribute("appnum").toString());
             
-            out.println("</h2><h1>Hello World of Servlets !!!</h1>");
+            out.println("<h1>Servlet SessionServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
