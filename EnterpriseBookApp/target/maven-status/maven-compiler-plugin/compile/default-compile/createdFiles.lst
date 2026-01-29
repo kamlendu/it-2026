@@ -1,0 +1,7 @@
+ejb/BookBeanLocal.class
+entity/BookMaster.class
+ejb/BookBeanBean.class
+BookServlet.class
+enterprisebookapp/resources/JakartaEE10Resource.class
+enterprisebookapp/JakartaRestConfiguration.class
+entity/MyBook.class
