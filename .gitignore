@@ -8,3 +8,5 @@
 /TestStates/target/
 /RemoteEJBApp/target/
 /RemoteClient/target/
+/MessagingModule/target/
+/MessageClient/target/

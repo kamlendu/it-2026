@@ -1,0 +1,6 @@
+singletonapp/resources/JakartaEE10Resource.class
+ejb/FirstBean.class
+singletonapp/JakartaRestConfiguration.class
+servlets/SingleServlet.class
+ejb/SecondBean.class
+ejb/SingleBean.class
