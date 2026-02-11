@@ -17,4 +17,14 @@ public interface DataBeanLocal {
     
     Collection<BookMaster> getAllBooks();
     
+    Collection<BookMaster> getBookByAuthors(String authname);
+    
+    void addBook(String bname, String authname, String pname, String synopsis);
+    
+    void updateBook(Integer bid, String bname, String authname, String pname, String synopsis);
+    
+    void removeBook(Integer bid);
+    
+    
+    
 }

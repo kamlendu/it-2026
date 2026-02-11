@@ -4,8 +4,10 @@
  */
 package servlets;
 
-import ejb.DataBeanLocal;
-import entity.BookMaster;
+import ejb.PublishBeanLocal;
+import entity.Address;
+import entity.Customer;
+import entity.Subscription;
 import jakarta.ejb.EJB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,16 +16,17 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  *
  * @author kamlendu
  */
-@WebServlet(name = "DataServlet", urlPatterns = {"/DataServlet"})
-public class DataServlet extends HttpServlet {
+@WebServlet(name = "PublishServlet", urlPatterns = {"/PublishServlet"})
+public class PublishServlet extends HttpServlet {
     
-    @EJB DataBeanLocal dbl;
+    @EJB PublishBeanLocal pbl;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,28 +45,58 @@ public class DataServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DataServlet</title>");
+            out.println("<title>Servlet PublishServlet</title>");
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body><h2>");
             
-            
-            //dbl.addBook("A new Book", "T. Eliot", "Indics", "A cofee table book");
+          //  pbl.addCustomer("Sandip", "Chopda");
+          pbl.removeCustomer(10);
           
-           // dbl.updateBook(366,"An Old Book", "T. Eliot", "TMH", "A cofee table book");
-          
-           dbl.removeBook(366);
+         // pbl.addAddressOfCustomer("S-234", "Surat", "Gujarat", "345123", 10);
+         // pbl.addAddressOfCustomer("M-612", "Vadodara", "Gujarat", "383002", 10);
+         
+      //   pbl.removeAddressOfCustomer(6, 10);
+       //  pbl.removeAddressOfCustomer(7, 10);
+         
+         Collection<Integer> sids = new ArrayList<>();
+         sids.add(1);
+         sids.add(2);
+         sids.add(3);
+         
+       //  pbl.addSubscriptionsToCustomer(10, sids);
+         
+      // pbl.removeSubscriptionsToCustomer(10, sids);
             
-            Collection<BookMaster> books = dbl.getAllBooks();
+            Collection<Customer> customers = pbl.getAllCustomers();
             
-            
-            for(BookMaster b : books)
+            for(Customer c : customers)
             {
+            out.println("<br/>cid : "+ c.getCustomerID()+ " Name : "+ c.getFirstName()+" "+ c.getLastName());
+             
+            Collection<Address> addresses = pbl.getAddressesOfCustomer(c.getCustomerID());
+             
+            for(Address a : addresses)
+            {
+             
+                  out.println("<br/>aid : "+ a.getAddressId()+ " street : " + a.getStreet()+ " City :"+ a.getCity()+ " State :" + a.getState());
                 
-                out.println("<br/>Book Name = "+ b.getBookName());
+            }
+             
+            Collection<Subscription> subs = pbl.getSubscriptionsOfCustomer(c.getCustomerID());
+            
+            for(Subscription s : subs)
+            {
+                out.println("<br/>sid : "+ s.getSubscriptionId()+ " title : "+ s.getTitle()+" Type : "+ s.getType());
+            
+            }
+            
+            out.println("<hr/>");
+                
             }
             
             
-            out.println("<h1>Servlet DataServlet at " + request.getContextPath() + "</h1>");
+            
+            out.println("</h2><h1>Servlet PublishServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

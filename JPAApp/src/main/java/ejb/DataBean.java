@@ -34,6 +34,55 @@ public class DataBean implements DataBeanLocal {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
+    @Override
+    public Collection<BookMaster> getBookByAuthors(String authname) {
+      //  throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   
+    Collection<BookMaster> books = em.createNamedQuery("BookMaster.findByAuthorName")
+                                     .setParameter("authorName", authname)
+                                     .getResultList();
+    
+    return books;
+    }
+
+    @Override
+    public void addBook(String bname, String authname, String pname, String synopsis) {
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   
+       BookMaster b = new BookMaster();
+       b.setBookName(bname);
+       b.setAuthorName(authname);
+       b.setPublisherName(pname);
+       b.setSynopsis(synopsis);
+       
+       em.persist(b);
+    }
+
+    @Override
+    public void updateBook(Integer bid, String bname, String authname, String pname, String synopsis) {
+      //  throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+      BookMaster b = (BookMaster)em.find(BookMaster.class, bid);
+       b.setBookName(bname);
+       b.setAuthorName(authname);
+       b.setPublisherName(pname);
+       b.setSynopsis(synopsis);
+    
+       em.merge(b);
+    
+    
+    }
+
+    @Override
+    public void removeBook(Integer bid) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     BookMaster b = (BookMaster)em.find(BookMaster.class, bid);
+     
+     em.remove(b);
+    
+    
+    }
+
 
 
 }
