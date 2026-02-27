@@ -1,0 +1,10 @@
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/publishapp/JakartaRestConfiguration.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/entity/Subscription.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/entity/Customer.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/ejb/PublishBeanLocal.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/servlets/PublishServlet.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/servlets/RestPublishServlet.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/publishapp/resources/JakartaEE10Resource.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/entity/Address.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/client/PublishClient.java
+/home/kamlendu/it-2026/trial/PublishApp/src/main/java/ejb/PublishBean.java
