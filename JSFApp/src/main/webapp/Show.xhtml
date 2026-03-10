@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       
+        Name : ${person.username}
+   <br/>Password : ${person.password}
+   <br/>Gender : ${person.gender}
+   <br/>City : ${person.city}
+   <br/>Age : ${person.age}
+   <br/>Salary : ${person.salary}
+    <br/>Email : ${person.email}
+   <br/>`<!-- comment -->
+   <c:forEach var="h" items="${person.hobbies}">
+   <br/> ${h}
+   </c:forEach>   
+        
+        
+        
+        
+    </h:body>
+</html>

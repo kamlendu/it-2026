@@ -1,0 +1,8 @@
+beans/RegisterBean.class
+loginregistration/resources/JakartaEE10Resource.class
+beans/Tbluser.class
+loginregistration/JakartaRestConfiguration.class
+beans/IndexBean.class
+it/loginregistration/resources/JakartaEE8Resource.class
+it/loginregistration/JakartaRestConfiguration.class
+listener/ListenPhase.class

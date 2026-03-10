@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+     <h:body>
+         
+        <br/> username property value = ${person.username}
+         <br/>
+         <h:form>
+             <h:panelGrid columns="3" border="1">
+                 
+                 <h:outputLabel id="onm" for="nm" value="Name of Person"/>
+                 <h:inputText id="nm" required="true" requiredMessage="Name can not be blank" value="#{person.username}"> 
+                     <f:converter converterId="myconverter"/>
+                 </h:inputText>
+                 <h:message id="nmsg" style="color:red" for="nm"/>
+                 
+                 <h:outputLabel for="pass" value="pass"/>
+                 <h:inputSecret id="pass" required="true" requiredMessage="Password can not be blank" value="#{person.password}"/> 
+                 <h:message  style="color:red" for="pass"/>
+                 
+                 <h:outputLabel for="gen" value="Gender"/>
+                 <h:selectOneRadio id="gen" value="#{person.gender}">                     
+                     <f:selectItem itemLabel="Male" itemValue="Male"/>
+                     <f:selectItem itemLabel="Female" itemValue="Female"/>                                         
+                 </h:selectOneRadio>   
+                 <h:message style="color:red" for="gen"/>
+                 
+                 <h:outputLabel for="city" value="City"/>
+                 <h:selectOneMenu id="city" value="#{person.city}">                     
+                     <f:selectItem itemLabel="Surat" itemValue="Surat"/>
+                     <f:selectItem itemLabel="Vadodara" itemValue="Vadodara"/> 
+                     <f:selectItem itemLabel="Delhi" itemValue="Delhi"/>
+                     <f:selectItem itemLabel="Mumbai" itemValue="Mumbai"/>                     
+                 </h:selectOneMenu>   
+                 <h:message style="color:red" for="city"/>
+                 
+                 <h:outputLabel  for="ag" value="Age"/>
+                 <h:inputText id="ag" value="#{person.age}"> 
+                     <f:validateLongRange minimum="18" maximum="60"/>
+                 </h:inputText>       
+                 <h:message  style="color:red" for="ag"/>
+                 
+               <h:outputLabel  for="sal"  value="Salary"/>
+               <h:inputText id="sal"   value="#{person.salary}"> 
+                   <f:validator validatorId="myvalidator"/>
+               </h:inputText>  
+                 <h:message  style="color:red" for="sal"/>
+                 
+                <h:outputLabel  for="em" value="Email"/>
+                 <h:inputText id="em" value="#{person.email}"> 
+                      <f:validateRegex pattern="^[A-Za-z0-9+_.-]+@(.+)$"/>
+                 </h:inputText>
+                 <h:message  style="color:red" for="em"/>
+                 
+                 
+                 <h:outputLabel for="h" value="Hobbies"/>
+                 <h:selectManyCheckbox id="h" value="#{person.hobbies}">                     
+                     <f:selectItem itemLabel="Reading" itemValue="Reading"/>
+                     <f:selectItem itemLabel="Singing" itemValue="Singing"/> 
+                     <f:selectItem itemLabel="Walking" itemValue="Walking"/>                                  
+                 </h:selectManyCheckbox> 
+                 <h:message style="color:red" for="h"/>
+                  
+                 <h:commandButton id="sub" value="Submit" action="#{person.showOutput}"/>     
+             </h:panelGrid>    
+         </h:form> 
+ 
+    </h:body>
+</html>
