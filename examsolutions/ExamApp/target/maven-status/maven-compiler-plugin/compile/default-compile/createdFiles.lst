@@ -1,0 +1,13 @@
+ejb/ExamBeanLocal.class
+it/examapp/resources/JakartaEE8Resource.class
+beans/ReportBean$2.class
+beans/ReportBean$1.class
+beans/ProductBean$1.class
+beans/ReportBean.class
+client/RestClient.class
+it/examapp/JakartaRestConfiguration.class
+entity/Category.class
+ejb/ExamBean.class
+beans/ProductBean.class
+entity/Productmaster.class
+beans/ProductBean$2.class

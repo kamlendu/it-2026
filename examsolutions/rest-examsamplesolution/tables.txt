@@ -1,0 +1,52 @@
+Tables for Crud operation in Product table. Category is prefilled
+
+mysql> desc category;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(45) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc productmaster;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| pid         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| productname | varchar(45) | YES  |     | NULL    |                |
+| price       | double      | YES  |     | NULL    |                |
+| category    | int(11)     | YES  | MUL | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+// Create Statements
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+Pre filled category table.
++----+------------+
+| id | name       |
++----+------------+
+|  1 | Mens Wear  |
+|  2 | Women Wear |
+|  3 | Child Wear |
++----+------------+
+
+
+
+CREATE TABLE `productmaster` (
+  `pid` int(11) NOT NULL AUTO_INCREMENT,
+  `productname` varchar(45) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  PRIMARY KEY (`pid`),
+  KEY `fk_productmaster_1_idx` (`category`),
+  CONSTRAINT `fk_productmaster_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+
