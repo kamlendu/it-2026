@@ -1,0 +1,12 @@
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/beans/LoginBean.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/it/jsfsecurityapp/resources/JakartaEE8Resource.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/it/jsfsecurityapp/JakartaRestConfiguration.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/client/SecureClient.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/ejb/SecureBean.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/rest/ApplicationConfig.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/filter/RestFilter.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/config/Project.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/record/KeepRecord.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/filter/NoCacheFilter.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/rest/SecureResource.java
+/home/kamlendu/NetBeansProjects/ict-2025/filterbased-security/JSFSecurityApp/src/main/java/beans/HelloBean.java

@@ -1,0 +1,14 @@
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/jwtrest/Constants.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/record/KeepRecord.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/it/securejsfapp/JakartaRestConfiguration.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/config/Project.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/it/securejsfapp/resources/SecureResource.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/beans/LoginBean.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/jwtrest/JWTCredential.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/ejb/SecureBean.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/it/securejsfapp/resources/JakartaEE8Resource.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/jwtrest/TokenProvider.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/filter/NoCacheFilter.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/beans/HelloBean.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/auth/SecureAuthentication.java
+/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecureJSFApp/src/main/java/client/SecureClient.java

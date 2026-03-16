@@ -1,0 +1,14 @@
+ejb/HelloBean.class
+config/Project.class
+jwtrest/TokenProvider.class
+servlets/SecureServlet.class
+jwtsecurityapp/JakartaRestConfiguration.class
+ejb/HelloBeanLocal.class
+client/HelloClient.class
+jwtrest/JWTCredential.class
+client/HelloClient$1.class
+jwtrest/Constants.class
+client/MyRestFilter.class
+auth/SecureAuthentication.class
+record/KeepRecord.class
+jwtsecurityapp/resources/JakartaEE10Resource.class
