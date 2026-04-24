@@ -1,8 +1,8 @@
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/config/Project.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/securityapp/JakartaRestConfiguration.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/auth/SecureAuthentication.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/securityapp/resources/JakartaEE10Resource.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/record/KeepRecord.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/SecureServlet.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/client/RestClient.java
-/home/kamlendu/NetBeansProjects/ict-2025/httpauth-security/SecurityApp/src/main/java/ejb/LogicBean.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/config/Project.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/securityapp/resources/JakartaEE10Resource.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/servlets/SecureServlet.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/securityapp/JakartaRestConfiguration.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/record/KeepRecord.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/client/RestClient.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/auth/CustomAuthentication.java
+/home/kamlendu/it-2026/httpauth-security1/SecurityApp/src/main/java/ejb/SecureBean.java

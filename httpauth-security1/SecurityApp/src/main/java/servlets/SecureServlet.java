@@ -4,26 +4,28 @@
  */
 package servlets;
 
-import ejb.DataBeanLocal;
-import entity.BookMaster;
-import jakarta.ejb.EJB;
+import client.RestClient;
+import jakarta.inject.Inject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.HttpConstraint;
+import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Collection;
+import record.KeepRecord;
 
 /**
  *
  * @author kamlendu
  */
-@WebServlet(name = "DataServlet", urlPatterns = {"/DataServlet"})
-public class DataServlet extends HttpServlet {
+@ServletSecurity(@HttpConstraint(rolesAllowed = {"Admin", "Supervisor"}))
+@WebServlet(name = "SecureServlet", urlPatterns = {"/SecureServlet"})
+public class SecureServlet extends HttpServlet {
     
-    @EJB DataBeanLocal dbl;
+    @Inject KeepRecord keepRecord;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,28 +44,16 @@ public class DataServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DataServlet</title>");
+            out.println("<title>Servlet SecureServlet</title>");
             out.println("</head>");
             out.println("<body>");
             
+//            String username = request.getSession().getAttribute("username").toString();
+//            String password = request.getSession().getAttribute("password").toString();
+//       
+            RestClient client = new RestClient(keepRecord.getUsername(), keepRecord.getPassword());
             
-            //dbl.addBook("A new Book", "T. Eliot", "Indics", "A cofee table book");
-          
-           // dbl.updateBook(366,"An Old Book", "T. Eliot", "TMH", "A cofee table book");
-          
-          // dbl.removeBook(366);
-            
-            Collection<BookMaster> books = dbl.getAllBooks();
-            
-            
-            for(BookMaster b : books)
-            {
-                
-                out.println("<br/>Book Name = "+ b.getBookName());
-            }
-            
-            
-            out.println("<h1>Servlet DataServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Secure Servlet Says : "+ client.greet()+"</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -1,6 +1,7 @@
 package securityapp.resources;
 
-import ejb.LogicBean;
+
+import ejb.SecureBean;
 import jakarta.annotation.security.DeclareRoles;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.EJB;
@@ -15,12 +16,13 @@ import jakarta.ws.rs.Produces;
 @DeclareRoles({"Admin","Supervisor"})
 @Path("rest")
 public class JakartaEE10Resource {
-    @EJB LogicBean lb;
+    @EJB SecureBean sb;
     
     @RolesAllowed("Admin")
     @GET
     @Produces("text/html")
     public String greet(){
-        return "<h2>"+lb.greet() + " and also from REST </h2>";
+       // return "<h2>"+lb.greet() + " and also from REST </h2>";
+    return "Secure Rest : " + sb.saySecureHello();
     }
 }

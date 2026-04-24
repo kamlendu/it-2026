@@ -15,6 +15,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-       
+        <%
+            
+      // request.logout();
+       //session.invalidate();
+     // KeepRecord.reset();
+//        
+    // request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+    //   response.sendRedirect("index.jsp");
+        %>
     </body>
 </html>

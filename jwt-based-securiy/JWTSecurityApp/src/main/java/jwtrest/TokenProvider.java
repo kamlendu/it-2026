@@ -118,7 +118,7 @@ catch(Exception ex)
                 .setSubject(username)
                 .setIssuer("localhost")
                 .claim(AUTHORITIES_KEY, authorities.stream().collect(joining(",")))
-              //  .signWith(SignatureAlgorithm.HS512, secretKey)
+               // .signWith(SignatureAlgorithm.HS512, secretKey)
                 .signWith(SignatureAlgorithm.RS256, myprivateKey)
                 .setExpiration(new Date(now + validity))
                 .compact();
